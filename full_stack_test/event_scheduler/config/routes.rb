@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   get 'sessions/new'
 get 'home/new' => "homepages#new"
 get 'event/new' => "events#new", :as => "event"
-post 'event/create' => "events#create", :as => "eventcreate"
+# post 'event/create' => "events#create", :as => "eventcreate"
+get 'newform/new' => "events#newform", :as => "newform"
+post 'newform/new' => "events#create", :as => 'create_eventform'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,5 +1,4 @@
-
-
+<div class="form">
 <h1>Sign Up</h1>
 
 <%= form_for @user do |f| %>
@@ -41,6 +40,7 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation %>
   </p>
-  <p class="button"><%= f.submit %></p>
+  <p class="button"><%= submit_tag "ok" %>
+  <%= submit_tag "cancel" %></p>
 <% end %>
-
+</div>

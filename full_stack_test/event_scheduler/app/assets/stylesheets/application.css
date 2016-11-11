@@ -23,6 +23,8 @@
 }
 footer{
 	background-color: grey;
+}
+.text-muted{
 	color:black;
 }
 .form{
@@ -32,12 +34,23 @@ footer{
 	padding-left:50px;
 	padding-top:10px;
 	margin-top:50px;
+	margin-right:425px;
+	    margin-bottom: 66px;
 }
 .btn-warning{
     margin-left: 1066px;
     margin-top:10px;
-    padding-top:7px;
+    /*padding-top:7px;*/
     padding-bottom:10px;
     padding-left:6px;
     padding-right:6px;
+}
+.formevent{
+	background-color: #eee;
+	width:30%;
+	margin-left:460px;
+	padding-left:20px;
+	padding-top:10px;
+	height:500%;
+
 }
