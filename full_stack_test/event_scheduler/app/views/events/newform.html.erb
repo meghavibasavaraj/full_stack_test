@@ -1,36 +1,59 @@
 <div class="form">
-
 <%= form_for :event do |f| %>
 <p>
-    <%= f.label :eventtitle %><br />
-    <%= f.text_field :eventtitle %>
-  </p>
-  <p>
-    <%= f.label :venue %><br />
-    <%= f.text_field :venue %>
-  </p>
-  <p>
-    <%= f.label :date %><br />
-    <%= f.text_field :date %>
-  </p>
-  <p>
-    <%= f.label :time %><br />
-    <%= f.text_field :time %>
-  </p>
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </p>
-  <p>
-    <%= f.label :invitees %><br />
-    <%= f.text_field :invitees %>
-  </p>
-  <p>
+  <%= f.label :Eventtitle %><br/>
+  <%= f.text_field :eventtitle %>  
+</p>
+<p>        
+  <%= f.label :Venue %><br/>
+  <%= f.text_field :venue %>
+</p>
+<p>
+<%= f.label :Date %>
+<div class="datetime_select">
+     <%= select_month Time.now, prefix: :event,
+                                field_name: :"event_date(2i)"
+                                 %> /
+     <%= select_day Time.now, prefix: :event,
+                              field_name: :"event_date(3i)"
+                               %> /
+     <%= select_year Time.now, prefix: :event,
+                               field_name: :"event_date(1i)",
+                               start_year: Time.now.year - 1
+                                %>
+</div></p>
+<p>
+  <%= f.label :Time %>
+   <div class="datetime_select">
+   <%= select_hour 12, prefix: :event,
+                               field_name: :"event_date(4i)",
+                               ampm: true
+                                %> :
+     <%= select_minute 0, prefix: :event,
+                                 field_name: :"event_date(5i)"
+                                 %>
+    </div></p>
+
+<p>      
+  <%= f.label :Description %><br/>
+  <%= f.text_area :description, size: "20x3" %>
+</p>
+<p>
+  <%= f.label :Invitees %><br />
+
+  <ul>
+ <% @users.each do |role| %>
+   <li>
+     <%= check_box_tag 'invitee_ids[]', role.id -%>
+     <%= role.username -%>
+   </li>
+ <% end %>
+</ul>
+<p>
     <%= f.label :status %><br />
-    <%= f.text_field :status %>
+    <%= f.select :status, ['open', 'closed']%>
   </p>
-  <p>
-  <%= f.submit %>
-  </p>
-  <% end %>
-  </div>
+</p>
+   <%= f.submit "Create event" %>
+ <% end %>
+</div>

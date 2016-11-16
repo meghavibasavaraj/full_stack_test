@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
   get 'sessions/new'
-get 'home/new' => "homepages#new"
+
+root "homepages#new"
+
 get 'event/new' => "events#new", :as => "event"
+get 'event/list' => "events#index", :as => "event_list"
 # post 'event/create' => "events#create", :as => "eventcreate"
 get 'newform/new' => "events#newform", :as => "newform"
 post 'newform/new' => "events#create", :as => 'create_eventform'
+get 'event/:id/edit' => "events#edit", :as => 'edit_event'
+put 'event/:id/edit' => "events#update", :as => "update_event"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -13,9 +18,9 @@ post 'newform/new' => "events#create", :as => 'create_eventform'
 get "log_out" => "sessions#destroy", :as => "log_out"
 get "log_in" => "sessions#new", :as => "log_in"
 get "sign_up" => "users#new", :as => "sign_up"
-root :to => "users#new"
+# root :to => "users#new"
 resources :users
-resources :sessions
+resources :sessionss
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

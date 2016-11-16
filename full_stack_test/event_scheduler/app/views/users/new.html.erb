@@ -14,23 +14,23 @@
   <% end %>
   <p>
     <%= f.label :firstname %><br />
-    <%= f.text_field :firstname %>
+    <%= f.text_field :firstname,:required => true %>
   </p>
   <p>
     <%= f.label :lastname %><br />
-    <%= f.text_field :lastname %>
+    <%= f.text_field :lastname,:required => true %>
   </p>
   <p>
     <%= f.label :username %><br />
-    <%= f.text_field :username %>
+    <%= f.text_field :username,:required => true %>
   </p>
   <p>
     <%= f.label :email %><br />
-    <%= f.text_field :email %>
+    <%= f.email_field :email,:required => true %>
   </p>
   <p>
     <%= f.label :phonenumber %><br />
-    <%= f.text_field :phonenumber %>
+    <%= f.telephone_field :phonenumber,:required => true,:maxlength=>"10" %>
   </p>
   <p>
     <%= f.label :password %><br />
@@ -40,7 +40,7 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation %>
   </p>
-  <p class="button"><%= submit_tag "ok" %>
+  <p class="button"><%= submit_tag "Register" %>
   <%= submit_tag "cancel" %></p>
 <% end %>
 </div>

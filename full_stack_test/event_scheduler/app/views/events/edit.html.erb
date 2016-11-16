@@ -1,0 +1,120 @@
+<div class="form">
+<% if current_user.id==@event.owner_id %>
+<%= form_for :event,url:update_event_path,method: :put do |f| %>
+<p>
+  <%= f.label :Eventtitle %><br/>
+  <%= f.text_field :eventtitle %>  
+</p>
+<p>        
+  <%= f.label :Venue %><br/>
+  <%= f.text_field :venue %>
+</p>
+<p>
+<%= f.label :Date %>
+<div class="datetime_select">
+     <%= select_month Time.now, prefix: :event,
+                                field_name: :"event_date(2i)"
+                                 %> /
+     <%= select_day Time.now, prefix: :event,
+                              field_name: :"event_date(3i)"
+                               %> /
+     <%= select_year Time.now, prefix: :event,
+                               field_name: :"event_date(1i)",
+                               start_year: Time.now.year - 1
+                                %>
+</div></p>
+<p>
+  <%= f.label :Time %>
+   <div class="datetime_select">
+   <%= select_hour 12, prefix: :event,
+                               field_name: :"event_date(4i)",
+                               ampm: true
+                                %> :
+     <%= select_minute 0, prefix: :event,
+                                 field_name: :"event_date(5i)"
+                                 %>
+    </div></p>
+
+<p>      
+  <%= f.label :Description %><br/>
+  <%= f.text_area :description, size: "20x3" %>
+</p>
+<p>
+  <%= f.label :Invitees %><br />
+
+  <ul>
+ <% @users.each do |role| %>
+   <li>
+     <%= check_box_tag 'invitee_ids[]', role.id -%>
+     <%= role.username -%>
+   </li>
+ <% end %>
+</ul>
+<p>
+    <%= f.label :status %><br />
+    <%= f.select :status, ['open', 'closed']%>
+  </p>
+</p>
+   <%= f.submit "Create event" %>
+ <% end %>
+ <% else %>
+ <%= form_for :event,url:update_event_path,method: :put do |f| %>
+<p>
+  <%= f.label :Eventtitle %><br/>
+  <%= f.text_field :eventtitle,:disabled=>true %>  
+</p>
+<p>        
+  <%= f.label :Venue %><br/>
+  <%= f.text_field :venue,:disabled=>true %>
+</p>
+<p>
+<%= f.label :Date %>
+<div class="datetime_select">
+     <%= select_month Time.now, prefix: :event,
+                                field_name: :"event_date(2i)"
+                                 %> /
+     <%= select_day Time.now, prefix: :event,
+                              field_name: :"event_date(3i)"
+                               %> /
+     <%= select_year Time.now, prefix: :event,
+                               field_name: :"event_date(1i)",
+                               start_year: Time.now.year - 1
+                                %>
+</div></p>
+<p>
+  <%= f.label :Time %>
+   <div class="datetime_select">
+   <%= select_hour 12, prefix: :event,
+                               field_name: :"event_date(4i)",
+                               ampm: true
+                                %> :
+     <%= select_minute 0, prefix: :event,
+                                 field_name: :"event_date(5i)"
+                                 %>
+    </div></p>
+
+<p>      
+  <%= f.label :Description %><br/>
+  <%= f.text_area :description, size: "20x3",:disabled=>true %>
+</p>
+<p>
+  <%= f.label :Invitees %><br />
+
+  <ul>
+ <% @users.each do |role| %>
+   <li>
+     <%= check_box_tag 'invitee_ids[]', role.id,:disabled=>true -%>
+     <%= role.username -%>
+   </li>
+ <% end %>
+</ul>
+</p>
+<p>
+    <%= f.label :status %><br />
+    <%= f.select :status, ['open', 'closed'],:disabled=>true%>
+  </p>
+
+   <%= f.submit "Create event" %>
+ <% end %>
+  <% end %>
+</div>

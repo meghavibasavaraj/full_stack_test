@@ -12,11 +12,11 @@
 
 <div id="user_nav">
   <% if current_user %>
-    Logged in as <%= current_user.email %>.
-    <%= link_to "Log out", log_out_path %>
+    Logged in as <%= current_user.username %>.
+    <%= link_to '<button type="button">Log Out</button>'.html_safe, log_out_path %> 
   <% else %>
-    <%= link_to "Sign up", sign_up_path %> 
-    <%= link_to "log in", log_in_path %>
+    <%= link_to '<button type="button">Sign Up</button>'.html_safe, sign_up_path %> 
+   <%= link_to '<button type="button">Log In</button>'.html_safe, log_in_path %> 
   <% end %>
 </div>
 
@@ -28,9 +28,8 @@
 
 <%= yield %>
 <footer class="footer">
-      <div class="container">
-        <p class="text-muted">Copyright &copy;2016 - Designed by Meghavi</p>
-      </div>
+      <p>Copyright &copy;2016 - Designed by Meghavi</p>
+     
 </footer>
 
 

@@ -14,18 +14,20 @@
  *= require_self
  */
  header{
- 	background-color: grey;
- 	margin-top:-45px;
+ 	background-color: #292422;
+ 	margin-top:-40px;
+ 	padding-left:5px;
+ 	padding-right:5px;
+ 	color:white;
  }
 #user_nav{
 	float:right;
 	margin-top:-45px;
 }
-footer{
-	background-color: grey;
-}
-.text-muted{
-	color:black;
+.footer{
+	background-color: #292422;
+	color:white;
+	float:right;
 }
 .form{
 	background-color: #eee;
@@ -53,4 +55,14 @@ footer{
 	padding-top:10px;
 	height:500%;
 
+}
+.box{
+	width: 500px;
+    height: 250px;    
+    padding: 50px;
+    border: 1px solid red;
+    margin-left:350px;
+    background-color: black;
+    color:white;
+    margin-top: 30px;
 }
